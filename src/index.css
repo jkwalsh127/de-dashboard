@@ -1,3 +1,16 @@
+* {
+  --light-white: #FFF8F0;
+  --white: #e2e8d9;
+  --gray: #F5EFE7;
+  --shadow: #D9D5CF;
+  --mint: #44AF69;
+  --dark-green: #4E6E58;
+  --forrest-green: #233329;
+  --darkest-green: #121A15;
+  --console-light: #1e2536;
+  --console-dark: #131722;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +18,54 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--console-light);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--console-dark);
+}
+
+.content-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/*--*/ 
+/* header */
+/*--*/
+.header-container {
+  height: 50px;
+  width: 100%;
+  background-color: var(--console-light);
+  position: absolute;
+}
+/*--*/ 
+/* main content */
+/*--*/
+.maincontent-container {
+  height: 90%;
+  width: 75%;
+  background-color: var(--console-light);
+  margin-top: 50px;
+}
+/*--*/ 
+/* supporting content */
+/*--*/
+.supportingcontent-container {
+  height: 80%;
+  width: 20%;
+  background-color: var(--console-light);
+  margin-top: 50px;
+}
+
+

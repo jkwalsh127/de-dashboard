@@ -1,13 +1,12 @@
+import React from "react";
+import Dropdown from "./Dropdown";
 
-
-export default function Header() {
+export default function Header({ handleSupportingChange, handleMainChange }) {
 
 
     return (
         <div className="header-container">
-            <div className="dropdown-wrapper">
-                
-            </div>
+            <Dropdown handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
         </div>
     )
 }

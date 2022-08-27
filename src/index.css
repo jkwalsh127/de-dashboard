@@ -30,42 +30,63 @@ code {
   width: 100vw;
   height: 100vh;
   background-color: var(--console-dark);
+  display: grid;
+  grid-template-columns: 10px 200px 10px 1fr 10px;
+  grid-template-rows: 50px 10px 50px 1fr 50px 10px;
 }
 
 .content-container {
   height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 /*--*/ 
 /* header */
 /*--*/
 .header-container {
-  height: 50px;
-  width: 100%;
   background-color: var(--console-light);
-  position: absolute;
+  display: flex;
+  align-items: center;
+  grid-column: 1/6;
+  grid-row: 1;
 }
+.dropdown-wrapper {
+  margin-left: 50px;
+}
+.dropdown-button {
+  background-color: none;
+  color: none;
+}
+.dropdown {
+  height: 30px;
+  color: var(--light-white);
+}
+
 /*--*/ 
 /* main content */
 /*--*/
 .maincontent-container {
-  height: 90%;
-  width: 75%;
   background-color: var(--console-light);
-  margin-top: 50px;
+  grid-column: 4;
+  grid-row: 3/6;
 }
+
 /*--*/ 
 /* supporting content */
 /*--*/
 .supportingcontent-container {
-  height: 80%;
-  width: 20%;
   background-color: var(--console-light);
-  margin-top: 50px;
+  grid-column: 2;
+  grid-row: 4;
 }
 
-
+/*--*/ 
+/* main overview */
+/*--*/
+.chart {
+  display: flex;
+  justify-content: center;
+}
+.chart-image {
+  width: 100px;
+  height: fit-content;
+}

@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import { WithdrawalPeriodsRadioList } from "../WithdrawalPeriodsRadioList";
 
 export default function SupportingOverview({ user }) {
 
@@ -14,7 +15,7 @@ export default function SupportingOverview({ user }) {
                                 Your Investment
                             </Typography>
                             <Typography>
-                                {user.investment}
+                                {/* {user.investment} */}
                             </Typography>
                         </div>
                         <div className="detail-2">
@@ -22,11 +23,12 @@ export default function SupportingOverview({ user }) {
                                 Your Balance
                             </Typography>
                             <Typography>
-                                {user.balance}
+                                {/* {user.balance} */}
                             </Typography>
                         </div>
                         <div className="detail-3">
                             <Typography>Profit</Typography>
+                            <WithdrawalPeriodsRadioList />
                         </div>
                         <div className="detail-4">
                             <Typography>Withdrawls</Typography>

@@ -44,14 +44,11 @@ code {
   grid-row: 1;
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: 1fr; */
   align-items: center;
 }
-/* .menu-wrapper {
-  height: 100%;
-  display: flex;
-  align-items: center;
-} */
+.menu-wrapper {
+
+}
 .dropdown-wrapper {
   margin-left: 50px;
 }
@@ -83,6 +80,15 @@ code {
   background-color: var(--console-light);
   grid-column: 2;
   grid-row: 4;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  list-style: none;
+  color: var(--light-white);
+}
+.detail-1 {
+  grid-row: 1;
+  display: flex;
+  align-items: center;
 }
 
 /*--*/ 

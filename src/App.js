@@ -13,7 +13,7 @@ export default function App() {
   const handleMainChange = (selection) => setMain(selection);
 
   return (
-    <div className="app">
+    <div className="app-container">
         <Header  handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
         <SupportingContent supporting={supporting} />
         <MainContent main={main} />

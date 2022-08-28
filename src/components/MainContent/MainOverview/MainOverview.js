@@ -5,7 +5,7 @@ export default function MainOverview() {
 
 
     return (
-        <div className="chart">
+        <div className="chart-wrapper">
             <img className="chart-image" src={photo} alt="chart" />
         </div>
     )

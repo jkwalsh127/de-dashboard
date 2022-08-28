@@ -17,7 +17,7 @@ export default function Dropdown({ handleSupportingChange, handleMainChange }) {
   };
 
   return (
-    <div>
+    <div className='menu-wrapper'>
       <Button
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}

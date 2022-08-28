@@ -3,7 +3,7 @@ import MainContent from "./components/MainContent/MainContent";
 import SupportingContent from "./components/SupportingConent/SupportingContent";
 import Header from "./components/Header/Header";
 import { DataStore } from '@aws-amplify/datastore';
-import { Users } from '../../models';
+import { Users } from './models';
 
 
 export default function App() {

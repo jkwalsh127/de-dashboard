@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import React from "react";
-import { WithdrawalPeriodsRadioList } from "../WithdrawalPeriodsRadioList";
+import WithdrawalPeriodsRadioList from "../WithdrawalPeriodsRadioList";
 
 export default function SupportingOverview({ user }) {
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Radio from '@mui/material/Radio';
+import { Radio, Typography } from '@mui/material';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
@@ -9,41 +9,45 @@ export default function WithdrawalPeriodsRadioList() {
     <FormControl>
       <RadioGroup
         row
-        aria-labelledby="demo-form-control-label-placement"
+        aria-labelledby="withdrawal-period-radio-list"
         name="position"
-        defaultValue="top"
       >
         <FormControlLabel
-          value="top"
-          control={<Radio />}
-          label="1 wk"
+          value="1 wk"
+          control={<Radio size="small" />}
+          label={<Typography sx={{ color: "var(--light-white)", fontSize: 10 }}>1 wk</Typography>}
+          labelPlacement="top"
         />
         <FormControlLabel
-          value="start"
-          control={<Radio />}
-          label="1 mo"
+          value="1 mo"
+          control={<Radio size="small" />}
+          label={<Typography sx={{ color: "var(--light-white)", fontSize: 10 }}>1 mo</Typography>}
+          labelPlacement="top"
         />
         <FormControlLabel
-          value="bottom"
-          control={<Radio />}
-          label="3 mo"
+          value="3 mo"
+          control={<Radio size="small" />}
+          label={<Typography sx={{ color: "var(--light-white)", fontSize: 10 }}>3 mo</Typography>}
+          labelPlacement="top"
         />
         <FormControlLabel
-          value="bottom"
-          control={<Radio />}
-          label="6 mo"
+          value="6 mo"
+          control={<Radio size="small" />}
+          label={<Typography sx={{ color: "var(--light-white)", fontSize: 10 }}>6 mo</Typography>}
+          labelPlacement="top"
         />
         <FormControlLabel
-          value="bottom"
-          control={<Radio />}
-          label="1 yr"
+          value="1 yr"
+          control={<Radio size="small" />}
+          label={<Typography sx={{ color: "var(--light-white)", fontSize: 10 }}>1 yr</Typography>}
+          labelPlacement="top"
         />
         <FormControlLabel
-          value="bottom"
-          control={<Radio />}
-          label="All"
+          value="All"
+          control={<Radio size="small" />}
+          label={<Typography sx={{ color: "var(--light-white)", fontSize: 10 }}>All</Typography>}
+          labelPlacement="top"
         />
-        <FormControlLabel value="end" control={<Radio />} label="End" />
       </RadioGroup>
     </FormControl>
   );

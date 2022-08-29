@@ -31,14 +31,14 @@ export default function ChartPeriodsRadioList({ handleChartPeriodChange }) {
           control={<Radio size="small" />}
           labelPlacement="bottom"
           label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>3 mos</Typography>}
-          onClick={() => handleChartPeriodChange("3mo")}
+          onClick={() => handleChartPeriodChange("3mos")}
         />
         <FormControlLabel
           value="6 mos"
           control={<Radio size="small" />}
           labelPlacement="bottom"
           label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>6 mos</Typography>}
-          onClick={() => handleChartPeriodChange("6mo")}
+          onClick={() => handleChartPeriodChange("6mos")}
         />
         <FormControlLabel
           value="1 yr"
@@ -48,21 +48,21 @@ export default function ChartPeriodsRadioList({ handleChartPeriodChange }) {
           onClick={() => handleChartPeriodChange("1yr")}
         />
         <FormControlLabel
-          value="All"
+          value="2 yrs"
           control={<Radio size="small" />}
           labelPlacement="bottom"
           label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>2 yrs</Typography>}
           onClick={() => handleChartPeriodChange("2yrs")}
         />
         <FormControlLabel
-          value="All"
+          value="3 yrs"
           control={<Radio size="small" />}
           labelPlacement="bottom"
           label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>3 yrs</Typography>}
           onClick={() => handleChartPeriodChange("3yrs")}
         />
         <FormControlLabel
-          value="All"
+          value="5 yrs"
           control={<Radio size="small" />}
           labelPlacement="bottom"
           label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>5 yrs</Typography>}

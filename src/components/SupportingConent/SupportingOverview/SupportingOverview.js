@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Typography } from "@mui/material";
-import BalancePeriodsRadioList from "../ProfitPeriodsRadioList";
-import ProfitPeriodsRadioList from "../ProfitPeriodsRadioList";
-import WithdrawalPeriodsRadioList from "../WithdrawalPeriodsRadioList";
+import BalancePeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
+import ProfitPeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
+import WithdrawalPeriodsRadioList from "../RadioLists/WithdrawalPeriodsRadioList";
 
-export default function SupportingOverview({ user }) {
+export default function SupportingOverview({ userArray }) {
     const [selectedBalancePeriod, setSelectedBalancePeriod] = useState("1wk");
     const handleBalancePeriodChange = (selection) => setSelectedBalancePeriod(selection);
 
@@ -17,7 +17,7 @@ export default function SupportingOverview({ user }) {
     return (
         <>
             {
-                user.map(user => (
+                userArray.map(user => (
                     <>
                         <div className="details-header">
                             <Typography>
@@ -47,30 +47,30 @@ export default function SupportingOverview({ user }) {
                                 Your Investment
                             </Typography>
                             <Typography>
-                                {user.investment}
+                                {/* {user.investment} */}
                             </Typography>
                         </div>
-                        <div className="detail-2">
+                        {/* <div className="detail-2">
                             <Typography>
                                 Your Balance
                             </Typography>
                             <BalancePeriodsRadioList user={user} handleBalancePeriodChange={handleBalancePeriodChange} />
                             {
                                 selectedBalancePeriod === "1wk" ?
-                                    user.weeklBalances[0]
+                                    user.weeklyBalances[0]
                                 : selectedBalancePeriod === "1mo" ?
-                                    user.weeklBalances[3]
+                                    user.weeklyBalances[3]
                                 : selectedBalancePeriod === "3mos" ?
-                                    user.weeklBalances[7]
+                                    user.weeklyBalances[7]
                                 : selectedBalancePeriod === "6mos" ?
-                                    user.weeklBalances[11]
+                                    user.weeklyBalances[11]
                                 : selectedBalancePeriod === "1yr" ?
-                                    user.weeklBalances[15]
+                                    user.weeklyBalances[15]
                                 : 
-                                    user.weeklBalances[19]
+                                    user.weeklyBalances[19]
                             }
-                        </div>
-                        <div className="detail-3">
+                        </div> */}
+                        {/* <div className="detail-3">
                             <Typography>Profit</Typography>
                             <ProfitPeriodsRadioList user={user} handleProfitPeriodChange={handleProfitPeriodChange} />
                             {
@@ -87,8 +87,8 @@ export default function SupportingOverview({ user }) {
                                 : 
                                     user.weeklyProfits[19]
                             }
-                        </div>
-                        <div className="detail-4">
+                        </div> */}
+                        {/* <div className="detail-4">
                             <Typography>Withdrawls</Typography>
                             <WithdrawalPeriodsRadioList user={user} handleWithdrawalPeriodChange={handleWithdrawalPeriodChange} />
                             {
@@ -105,7 +105,7 @@ export default function SupportingOverview({ user }) {
                                 : 
                                     user.weeklyWithdrawals[19]
                             }
-                        </div>
+                        </div> */}
                     </>
                 ))
             }

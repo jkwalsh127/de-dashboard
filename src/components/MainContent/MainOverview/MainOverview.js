@@ -7,7 +7,7 @@ import OneYR from "../../../images/btc-bot-1yr.png";
 import TwoYRS from "../../../images/btc-bot-2yrs.png";
 import ThreeYRS from "../../../images/btc-bot-3yrs.png";
 import FiveYRS from "../../../images/btc-bot-5yrs.png";
-import ChartPeriodsRadioList from "../ChartPeriodRadioList";
+import ChartPeriodsRadioList from "../RadioLists/ChartPeriodRadioList";
 
 export default function MainOverview() {
     const [selectedChartPeriod, setSelectedChartPeriod] = useState("1wk");

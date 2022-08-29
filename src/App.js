@@ -9,7 +9,7 @@ import { User } from './models';
 
 
 export default function App() {
-  const [user, setUser] = useState([]);
+  const [userArray, setUser] = useState([]);
 
   useEffect(() => {
     fetchUser();
@@ -32,7 +32,7 @@ export default function App() {
       {({ signOut }) => (
         <div className="app-container">
             <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
-            <SupportingContent supporting={supporting} user={user} />
+            <SupportingContent supporting={supporting} userArray={userArray} />
             <MainContent main={main} />
         </div>
       )}

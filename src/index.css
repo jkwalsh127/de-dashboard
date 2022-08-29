@@ -110,13 +110,31 @@ code {
   list-style: none;
   color: var(--light-white);
 }
-.details-header {
-  grid-row: 1;
+.details {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
 }
-.detail-1 {
+.detail-head {
+  grid-row: 1;
+  display: flex;
+  justify-content: start;
+}
+.detail-info {
   grid-row: 2;
   display: flex;
-  align-items: center;
+  justify-content: end;
+}
+#radio-labels-container {
+  grid-row: 2;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+
+.detail-1 {
+
 }
 .detail-2 {
   grid-row: 3;

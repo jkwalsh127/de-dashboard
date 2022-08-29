@@ -5,20 +5,36 @@ import Header from "./components/Header/Header";
 import { Authenticator } from '@aws-amplify/ui-react';
 import "@aws-amplify/ui-react/styles.css";
 import { DataStore } from '@aws-amplify/datastore';
-import { User } from './models';
+import { User, Withdrawal, WeeklyWithdrawal } from './models';
 
 
 export default function App() {
-  const [userArray, setUser] = useState([]);
+  const [users, setUser] = useState([]);
+  const [withdrawals, setWithdrawals] = useState([]);
+  const [weeklyWithdrawals, setWeeklyWithdrawals] = useState([]);
 
   useEffect(() => {
     fetchUser();
+    fetchWithdrawals();
+    fetchWeeklyWithdrawals();
   }, []);
 
   async function fetchUser() {
     const userModels = await DataStore.query(User);
     console.log(userModels);
     setUser(userModels);
+  }
+
+  async function fetchWithdrawals() {
+    const withdrawalModels = await DataStore.query(Withdrawal);
+    console.log(withdrawalModels);
+    setWithdrawals(withdrawalModels);
+  }
+
+  async function fetchWeeklyWithdrawals() {
+    const weeklyWithdrawalModels = await DataStore.query(WeeklyWithdrawal);
+    console.log(weeklyWithdrawalModels);
+    setWeeklyWithdrawals(weeklyWithdrawalModels);
   }
 
   const [supporting, setSupporting] = useState("Overview");
@@ -32,7 +48,7 @@ export default function App() {
       {({ signOut }) => (
         <div className="app-container">
             <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
-            <SupportingContent supporting={supporting} userArray={userArray} />
+            <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} />
             <MainContent main={main} />
         </div>
       )}

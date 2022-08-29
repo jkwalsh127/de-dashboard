@@ -4,7 +4,7 @@ import BalancePeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
 import ProfitPeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
 import WithdrawalPeriodsRadioList from "../RadioLists/WithdrawalPeriodsRadioList";
 
-export default function SupportingOverview({ userArray }) {
+export default function SupportingOverview({ users, withdrawals, weeklyWithdrawals }) {
     const [selectedBalancePeriod, setSelectedBalancePeriod] = useState("1wk");
     const handleBalancePeriodChange = (selection) => setSelectedBalancePeriod(selection);
 
@@ -17,37 +17,39 @@ export default function SupportingOverview({ userArray }) {
     return (
         <>
             {
-                userArray.map(user => (
+                users.map(user => (
                     <>
-                        <div className="details-header">
-                            <Typography>
+                        <div className="details">
+                            <Typography className="detail-head">
                                 Your Portfolio Details
                             </Typography>
-                            <Typography>
-                                1 wk
-                            </Typography>
-                            <Typography>
-                                1 mo
-                            </Typography>
-                            <Typography>
-                                3 mos
-                            </Typography>
-                            <Typography>
-                                6 mos
-                            </Typography>
-                            <Typography>
-                                1 yr
-                            </Typography>
-                            <Typography>
-                                All
-                            </Typography>
+                            <div className="detail-info" id="radio-labels-container">
+                                <Typography sx={{ fontSize: 10 }}>
+                                    1 wk
+                                </Typography>
+                                <Typography sx={{ fontSize: 10 }}>
+                                    1 mo
+                                </Typography>
+                                <Typography sx={{ fontSize: 10 }}>
+                                    3 mos
+                                </Typography>
+                                <Typography sx={{ fontSize: 10 }}>
+                                    6 mos
+                                </Typography>
+                                <Typography sx={{ fontSize: 10 }}>
+                                    1 yr
+                                </Typography>
+                                <Typography sx={{ fontSize: 10 }}>
+                                    All
+                                </Typography>
+                            </div>
                         </div>
-                        <div className="detail-1">
+                        <div className="details detail-1">
                             <Typography>
                                 Your Investment
                             </Typography>
-                            <Typography>
-                                {/* {user.investment} */}
+                            <Typography className="detail-info">
+                                ${user.investment}
                             </Typography>
                         </div>
                         {/* <div className="detail-2">
@@ -88,10 +90,16 @@ export default function SupportingOverview({ userArray }) {
                                     user.weeklyProfits[19]
                             }
                         </div> */}
-                        {/* <div className="detail-4">
+                        <div className="detail-4">
                             <Typography>Withdrawls</Typography>
                             <WithdrawalPeriodsRadioList user={user} handleWithdrawalPeriodChange={handleWithdrawalPeriodChange} />
                             {
+                                        selectedWithdrawalPeriod === "1wk" ?
+                                            weeklyWithdrawals[0].amount
+                                        : 
+                                            <></>
+                            }
+                            {/* {
                                 selectedWithdrawalPeriod === "1wk" ?
                                     user.weeklyWithdrawals[0]
                                 : selectedWithdrawalPeriod === "1mo" ?
@@ -104,8 +112,8 @@ export default function SupportingOverview({ userArray }) {
                                     user.weeklyWithdrawals[15]
                                 : 
                                     user.weeklyWithdrawals[19]
-                            }
-                        </div> */}
+                            } */}
+                        </div>
                     </>
                 ))
             }

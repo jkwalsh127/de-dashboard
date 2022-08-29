@@ -51,8 +51,22 @@ export default function ChartPeriodsRadioList({ handleChartPeriodChange }) {
           value="All"
           control={<Radio size="small" />}
           labelPlacement="bottom"
-          label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>All</Typography>}
-          onClick={() => handleChartPeriodChange("All")}
+          label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>2 yrs</Typography>}
+          onClick={() => handleChartPeriodChange("2yrs")}
+        />
+        <FormControlLabel
+          value="All"
+          control={<Radio size="small" />}
+          labelPlacement="bottom"
+          label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>3 yrs</Typography>}
+          onClick={() => handleChartPeriodChange("3yrs")}
+        />
+        <FormControlLabel
+          value="All"
+          control={<Radio size="small" />}
+          labelPlacement="bottom"
+          label={<Typography sx={{ fontSize: 10, color: "var(--light-white)" }}>5 yrs</Typography>}
+          onClick={() => handleChartPeriodChange("5yrs")}
         />
       </RadioGroup>
     </FormControl>

@@ -4,49 +4,49 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 
-export default function WithdrawalPeriodsRadioList({ handlewithdrawalPeriodChange }) {
+export default function BalancePeriodsRadioList({ handleBalancePeriodChange }) {
   return (
     <FormControl>
       <RadioGroup
         row
-        aria-labelledby="withdrawal-period-radio-list"
+        aria-labelledby="balance-period-radio-list"
         name="position"
       >
         <FormControlLabel
           value="1 wk"
           control={<Radio size="small" />}
           labelPlacement="top"
-          onClick={() => handlewithdrawalPeriodChange("1wk")}
+          onClick={() => handleBalancePeriodChange("1wk")}
         />
         <FormControlLabel
           value="1 mo"
           control={<Radio size="small" />}
           labelPlacement="top"
-          onClick={() => handlewithdrawalPeriodChange("1mo")}
+          onClick={() => handleBalancePeriodChange("1mo")}
         />
         <FormControlLabel
           value="3 mos"
           control={<Radio size="small" />}
           labelPlacement="top"
-          onClick={() => handlewithdrawalPeriodChange("3mo")}
+          onClick={() => handleBalancePeriodChange("3mo")}
         />
         <FormControlLabel
           value="6 mos"
           control={<Radio size="small" />}
           labelPlacement="top"
-          onClick={() => handlewithdrawalPeriodChange("6mo")}
+          onClick={() => handleBalancePeriodChange("6mo")}
         />
         <FormControlLabel
           value="1 yr"
           control={<Radio size="small" />}
           labelPlacement="top"
-          onClick={() => handlewithdrawalPeriodChange("1yr")}
+          onClick={() => handleBalancePeriodChange("1yr")}
         />
         <FormControlLabel
           value="All"
           control={<Radio size="small" />}
           labelPlacement="top"
-          onClick={() => handlewithdrawalPeriodChange("All")}
+          onClick={() => handleBalancePeriodChange("All")}
         />
       </RadioGroup>
     </FormControl>

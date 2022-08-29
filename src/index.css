@@ -81,12 +81,30 @@ code {
   grid-column: 2;
   grid-row: 4;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50px 1fr 1fr 1fr 1fr;
   list-style: none;
   color: var(--light-white);
 }
-.detail-1 {
+.details-header {
   grid-row: 1;
+}
+.detail-1 {
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+}
+.detail-2 {
+  grid-row: 3;
+  display: flex;
+  align-items: center;
+}
+.detail-3 {
+  grid-row: 4;
+  display: flex;
+  align-items: center;
+}
+.detail-4 {
+  grid-row: 5;
   display: flex;
   align-items: center;
 }

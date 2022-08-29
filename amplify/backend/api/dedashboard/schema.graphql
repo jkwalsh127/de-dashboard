@@ -1,10 +1,56 @@
-# This "input" configures a global authorization rule to enable public access to
-# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
-input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+type TotalWithdrawal @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  date: AWSDate
+  amount: Int
+  userID: ID! @index(name: "byUser")
+}
 
-type User @model @auth(rules: [{allow: public}]) {
+type TotalProfit @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  date: AWSDate
+  profit: Float
+  userID: ID! @index(name: "byUser")
+}
+
+type WeeklyWithdrawal @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  date: AWSDate
+  amount: Int
+  userID: ID! @index(name: "byUser")
+}
+
+type WeeklyProfit @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  date: AWSDate
+  profit: Float
+  userID: ID! @index(name: "byUser")
+}
+
+type WeeklyBalance @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  date: AWSDate
+  balance: Int
+  userID: ID! @index(name: "byUser")
+}
+
+type Withdrawal @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  date: AWSDate
+  amount: Int
+  userID: ID! @index(name: "byUser")
+}
+
+type User @model @auth(rules: [{allow: public}, {allow: private}]) {
   id: ID!
   name: String!
-  investment: String
-  balance: String
+  investment: Int
+  balance: Int
+  Withdrawals: [Withdrawal] @hasMany(indexName: "byUser", fields: ["id"])
+  profit: Float
+  WeeklyBalances: [WeeklyBalance] @hasMany(indexName: "byUser", fields: ["id"])
+  WeeklyProfits: [WeeklyProfit] @hasMany(indexName: "byUser", fields: ["id"])
+  WeeklyWithdrawals: [WeeklyWithdrawal] @hasMany(indexName: "byUser", fields: ["id"])
+  TotalProfits: [TotalProfit] @hasMany(indexName: "byUser", fields: ["id"])
+  TotalWithdrawals: [TotalWithdrawal] @hasMany(indexName: "byUser", fields: ["id"])
 }
+ 

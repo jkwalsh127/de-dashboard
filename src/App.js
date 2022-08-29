@@ -4,8 +4,8 @@ import SupportingContent from "./components/SupportingConent/SupportingContent";
 import Header from "./components/Header/Header";
 import { Authenticator } from '@aws-amplify/ui-react';
 import "@aws-amplify/ui-react/styles.css";
-// import { DataStore } from '@aws-amplify/datastore';
-// import { Users } from './models';
+import { DataStore } from '@aws-amplify/datastore';
+import { User } from './models';
 
 
 export default function App() {
@@ -16,9 +16,9 @@ export default function App() {
   }, []);
 
   async function fetchUser() {
-    // const userModels = await DataStore.query(Users);
-    // console.log(userModels);
-    // setUser(userModels);
+    const userModels = await DataStore.query(User);
+    console.log(userModels);
+    setUser(userModels);
   }
 
   const [supporting, setSupporting] = useState("Overview");

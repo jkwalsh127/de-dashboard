@@ -4,8 +4,14 @@ import { schema } from './schema';
 
 
 
-const { User } = initSchema(schema);
+const { TotalWithdrawal, TotalProfit, WeeklyWithdrawal, WeeklyProfit, WeeklyBalance, Withdrawal, User } = initSchema(schema);
 
 export {
+  TotalWithdrawal,
+  TotalProfit,
+  WeeklyWithdrawal,
+  WeeklyProfit,
+  WeeklyBalance,
+  Withdrawal,
   User
 };

@@ -68,9 +68,34 @@ code {
   background-color: var(--console-light);
   grid-column: 4;
   grid-row: 3/6;
+}
+/*--*/ 
+/* main overview */
+/*--*/
+.chart-container {
+  background-color: var(--console-dark);
+  margin: 10px;
+  grid-column: 2;
+  grid-row: 2;
   display: grid;
   grid-template-columns: 10px 1fr 10px;
-  grid-template-rows: 10px 1fr;
+  grid-template-rows: 10px 1fr 10px;
+  justify-items: center;
+}
+.chart-wrapper {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  justify-items: center;
+}
+.chart-image {
+  grid-row: 1;
+  width: 100%;
+}
+.chart-radio-wrapper {
+  grid-row: 2;
+  width: 420px;
 }
 
 /*--*/ 
@@ -109,13 +134,3 @@ code {
   align-items: center;
 }
 
-/*--*/ 
-/* main overview */
-/*--*/
-.chart-wrapper {
-  grid-column: 2;
-  grid-row: 2;
-}
-.chart-image {
-  width: 100%;
-}

@@ -10,7 +10,7 @@ export default function WithdrawalPeriodsRadioList({ handlewithdrawalPeriodChang
       <RadioGroup
         row
         aria-labelledby="withdrawal-period-radio-list"
-        name="position"
+        name="withdrawal-period"
       >
         <FormControlLabel
           value="1 wk"

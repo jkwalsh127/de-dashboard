@@ -10,7 +10,7 @@ export default function ProfitPeriodsRadioList({ handleProfitPeriodChange }) {
       <RadioGroup
         row
         aria-labelledby="Profit-period-radio-list"
-        name="position"
+        name="profit-period"
       >
         <FormControlLabel
           value="1 wk"

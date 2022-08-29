@@ -10,7 +10,7 @@ export default function BalancePeriodsRadioList({ handleBalancePeriodChange }) {
       <RadioGroup
         row
         aria-labelledby="balance-period-radio-list"
-        name="position"
+        name="balance-period"
       >
         <FormControlLabel
           value="1 wk"

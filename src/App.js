@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import MainContent from "./components/MainContent/MainContent";
 import SupportingContent from "./components/SupportingConent/SupportingContent";
 import Header from "./components/Header/Header";
+import { Authenticator } from '@aws-amplify/ui-react';
+import "@aws-amplify/ui-react/styles.css";
 // import { DataStore } from '@aws-amplify/datastore';
 // import { Users } from './models';
 
@@ -26,10 +28,14 @@ export default function App() {
   const handleMainChange = (selection) => setMain(selection);
 
   return (
-    <div className="app-container">
-        <Header  handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
-        <SupportingContent supporting={supporting} user={user} />
-        <MainContent main={main} />
-    </div>
+    <Authenticator>
+      {({ signOut }) => (
+        <div className="app-container">
+            <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
+            <SupportingContent supporting={supporting} user={user} />
+            <MainContent main={main} />
+        </div>
+      )}
+    </Authenticator>
   );
 }

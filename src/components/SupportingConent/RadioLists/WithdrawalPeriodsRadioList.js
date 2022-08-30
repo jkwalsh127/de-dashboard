@@ -4,7 +4,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 export default function WithdrawalPeriodsRadioList({ handleWithdrawalPeriodChange }) {
   return (
-    <RadioGroup>
+    <RadioGroup defaultValue="1 wk">
       <div className='radio-button-group'>
         <FormControlLabel
           value="1 wk"

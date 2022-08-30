@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import BalancePeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
 import ProfitPeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
@@ -7,7 +7,10 @@ import RadioLabels from "../RadioLabels/RadioLabels";
 
 export default function SupportingOverview({ users, withdrawals, weeklyWithdrawals }) {
 
+    const [period, setPeriod] = useState(false);
+
     const [withdrawalTotal, setWithdrawalTotal] = useState();
+  
     function sumWithdrawals(period) {
         let totalWithdrawals = 0;
         if (period > withdrawals.length || period == 0) {
@@ -22,15 +25,19 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
             }
         }
         setWithdrawalTotal(totalWithdrawals);
+        setPeriod(true);
     }
 
     const [selectedBalancePeriod, setSelectedBalancePeriod] = useState("1wk");
     const handleBalancePeriodChange = (selection) => setSelectedBalancePeriod(selection);
 
-    const [selectedProfitPeriod, setSelectedProfitPeriod] = useState("1wk");
+    const [selectedProfitPeriod, setSelectedProfitPeriod] = useState(1);
     const handleProfitPeriodChange = (selection) => setSelectedProfitPeriod(selection);
 
-    const handleWithdrawalPeriodChange = (period) => sumWithdrawals(period);
+    function handleWithdrawalPeriodChange(period) {
+        sumWithdrawals(period);
+        // setPeriod(period);
+    } 
 
     return (
         <>
@@ -110,8 +117,13 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                         </div> */}
                         <div className="detail-with-toggle detail-4">
                             <Typography className="detail-head">Withdrawls</Typography>
-                            <Typography className="detail-info">                                
-                                {withdrawalTotal}
+                            <Typography className="detail-info">  
+                            {
+                            period === false ?
+                                withdrawals[0].amount
+                            :                          
+                                withdrawalTotal
+                            }
                             </Typography>
                             <RadioLabels />
                             <WithdrawalPeriodsRadioList handleWithdrawalPeriodChange={handleWithdrawalPeriodChange} />

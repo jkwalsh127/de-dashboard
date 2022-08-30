@@ -1,3 +1,19 @@
+type BtcTrade @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  position: String
+  entryDate: AWSDate
+  closeDate: AWSDate
+  investment: Int
+  entryPrice: Int
+  closePrice: Int
+  profitValue: Int
+  profitPercentage: Float
+  runUpValue: Int
+  runUpPercentage: Float
+  drawDownValue: Int
+  drawDownPercentage: Float
+}
+
 type TotalWithdrawal @model @auth(rules: [{allow: public}]) {
   id: ID!
   date: AWSDate

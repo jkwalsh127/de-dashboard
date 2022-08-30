@@ -4,6 +4,10 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type BtcTradeMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type TotalWithdrawalMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
 }
@@ -30,6 +34,26 @@ type WithdrawalMetaData = {
 
 type UserMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class BtcTrade {
+  readonly id: string;
+  readonly position?: string | null;
+  readonly entryDate?: string | null;
+  readonly closeDate?: string | null;
+  readonly investment?: number | null;
+  readonly entryPrice?: number | null;
+  readonly closePrice?: number | null;
+  readonly profitValue?: number | null;
+  readonly profitPercentage?: number | null;
+  readonly runUpValue?: number | null;
+  readonly runUpPercentage?: number | null;
+  readonly drawDownValue?: number | null;
+  readonly drawDownPercentage?: number | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<BtcTrade, BtcTradeMetaData>);
+  static copyOf(source: BtcTrade, mutator: (draft: MutableModel<BtcTrade, BtcTradeMetaData>) => MutableModel<BtcTrade, BtcTradeMetaData> | void): BtcTrade;
 }
 
 export declare class TotalWithdrawal {

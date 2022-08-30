@@ -37,6 +37,7 @@ export default function Dropdown({ handleSupportingChange, handleMainChange }) {
         }}
       >
         <MenuItem onClick={() => handleClose("Overview")}>Overview</MenuItem>
+        <MenuItem onClick={() => handleClose("Performance")}>Performance</MenuItem>
       </Menu>
     </div>
   );

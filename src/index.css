@@ -159,8 +159,6 @@ code {
 }
 .detail-3 {
   grid-row: 4;
-  display: flex;
-  align-items: center;
 }
 .detail-4 {
   grid-row: 5;

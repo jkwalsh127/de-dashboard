@@ -52,4 +52,6 @@ type User @model @auth(rules: [{allow: public}, {allow: private}]) {
   WeeklyWithdrawals: [WeeklyWithdrawal] @hasMany(indexName: "byUser", fields: ["id"])
   TotalProfits: [TotalProfit] @hasMany(indexName: "byUser", fields: ["id"])
   TotalWithdrawals: [TotalWithdrawal] @hasMany(indexName: "byUser", fields: ["id"])
-} 
+  joinDate: AWSDate
+}
+ 

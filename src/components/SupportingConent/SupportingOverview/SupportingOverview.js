@@ -5,11 +5,13 @@ import ProfitPeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
 import WithdrawalPeriodsRadioList from "../RadioLists/WithdrawalPeriodsRadioList";
 import RadioLabels from "../RadioLabels/RadioLabels";
 
-export default function SupportingOverview({ users, withdrawals, weeklyWithdrawals }) {
+export default function SupportingOverview({ users, withdrawals, weeklyWithdrawals, totalProfit, weeklyProfits }) {
 
-    const [period, setPeriod] = useState(false);
+    const [withdrawalPeriod, setWithdrawalPeriod] = useState(false);
+    const [profitPeriod, setProfitPeriod] = useState(false);
 
     const [withdrawalTotal, setWithdrawalTotal] = useState();
+    const [profitTotal, setProfitTotal] = useState();
   
     function sumWithdrawals(period) {
         let totalWithdrawals = 0;
@@ -25,19 +27,34 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
             }
         }
         setWithdrawalTotal(totalWithdrawals);
-        setPeriod(true);
+        setWithdrawalPeriod(true);
+        console.log(weeklyProfits);
+        console.log(withdrawals);
+    }
+    function sumProfits(period) {
+        let totalProfits = 0;
+        if (period > weeklyProfits.length || period == 0) {
+            for (let i = 0; i < weeklyProfits.length; i++) {
+                totalProfits += (weeklyProfits[i].profit)
+            }
+        } else {
+            if (period !== 0 ) {
+                for (let i = 0; i < period; i++) {
+                    totalProfits += (weeklyProfits[i].profit)
+                }
+            }
+        }
+        setProfitTotal(totalProfits);
+        setProfitPeriod(true);
     }
 
     const [selectedBalancePeriod, setSelectedBalancePeriod] = useState("1wk");
     const handleBalancePeriodChange = (selection) => setSelectedBalancePeriod(selection);
 
     const [selectedProfitPeriod, setSelectedProfitPeriod] = useState(1);
-    const handleProfitPeriodChange = (selection) => setSelectedProfitPeriod(selection);
+    const handleProfitPeriodChange = (period) => sumProfits(period);
 
-    function handleWithdrawalPeriodChange(period) {
-        sumWithdrawals(period);
-        // setPeriod(period);
-    } 
+    const handleWithdrawalPeriodChange = (period) => sumWithdrawals(period);
 
     return (
         <>
@@ -97,29 +114,24 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                                     user.weeklyBalances[19]
                             }
                         </div> */}
-                        {/* <div className="detail-3">
-                            <Typography>Profit</Typography>
-                            <ProfitPeriodsRadioList user={user} handleProfitPeriodChange={handleProfitPeriodChange} />
+                        <div className="detail-with-toggle detail-3">
+                            <Typography className="detail-head">Profits</Typography>
+                            <Typography className="detail-info">  
                             {
-                                selectedProfitPeriod === "1wk" ?
-                                    user.weeklyProfits[0]
-                                : selectedProfitPeriod === "1mo" ?
-                                    user.weeklyProfits[3]
-                                : selectedProfitPeriod === "3mos" ?
-                                    user.weeklyProfits[7]
-                                : selectedProfitPeriod === "6mos" ?
-                                    user.weeklyProfits[11]
-                                : selectedProfitPeriod === "1yr" ?
-                                    user.weeklyProfits[15]
-                                : 
-                                    user.weeklyProfits[19]
+                            profitPeriod === false ?
+                                weeklyProfits[0].profit
+                            :                          
+                                profitTotal
                             }
-                        </div> */}
+                            </Typography>
+                            <RadioLabels />
+                            <ProfitPeriodsRadioList handleProfitPeriodChange={handleProfitPeriodChange} />
+                        </div>
                         <div className="detail-with-toggle detail-4">
                             <Typography className="detail-head">Withdrawls</Typography>
                             <Typography className="detail-info">  
                             {
-                            period === false ?
+                            withdrawalPeriod === false ?
                                 withdrawals[0].amount
                             :                          
                                 withdrawalTotal

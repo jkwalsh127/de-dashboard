@@ -110,6 +110,7 @@ export declare class User {
   readonly WeeklyWithdrawals?: (WeeklyWithdrawal | null)[] | null;
   readonly TotalProfits?: (TotalProfit | null)[] | null;
   readonly TotalWithdrawals?: (TotalWithdrawal | null)[] | null;
+  readonly joinDate?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<User, UserMetaData>);

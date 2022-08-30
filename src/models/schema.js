@@ -614,6 +614,13 @@ export const schema = {
                         "associatedWith": "userID"
                     }
                 },
+                "joinDate": {
+                    "name": "joinDate",
+                    "isArray": false,
+                    "type": "AWSDate",
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -668,5 +675,5 @@ export const schema = {
     },
     "enums": {},
     "nonModels": {},
-    "version": "5cd67e756b387fd6166caf5218db1eb4"
+    "version": "c6366f97191a057b6fbcc330d7c1e11f"
 };

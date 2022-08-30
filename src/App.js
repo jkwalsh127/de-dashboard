@@ -5,18 +5,22 @@ import Header from "./components/Header/Header";
 import { Authenticator } from '@aws-amplify/ui-react';
 import "@aws-amplify/ui-react/styles.css";
 import { DataStore } from '@aws-amplify/datastore';
-import { User, Withdrawal, WeeklyWithdrawal } from './models';
+import { User, Withdrawal, WeeklyWithdrawal, TotalProfit, WeeklyProfit } from './models';
 
 
 export default function App() {
   const [users, setUser] = useState([]);
   const [withdrawals, setWithdrawals] = useState([]);
   const [weeklyWithdrawals, setWeeklyWithdrawals] = useState([]);
+  const [totalProfit, setTotalProfit] = useState([]);
+  const [weeklyProfits, setWeeklyProfits] = useState([]);
 
   useEffect(() => {
     fetchUser();
     fetchWithdrawals();
     fetchWeeklyWithdrawals();
+    fetchTotalProfit();
+    fetchWeeklyProfits();
   }, []);
 
   async function fetchUser() {
@@ -37,6 +41,18 @@ export default function App() {
     setWeeklyWithdrawals(weeklyWithdrawalModels);
   }
 
+  async function fetchTotalProfit() {
+    const totalProfitModels = await DataStore.query(TotalProfit);
+    console.log(totalProfitModels);
+    setTotalProfit(totalProfitModels);
+  }
+
+  async function fetchWeeklyProfits() {
+    const weeklyProfitModels = await DataStore.query(WeeklyProfit);
+    console.log(weeklyProfitModels);
+    setWeeklyProfits(weeklyProfitModels);
+  }
+
   const [supporting, setSupporting] = useState("Overview");
   const handleSupportingChange = (selection) => setSupporting(selection);
 
@@ -48,7 +64,7 @@ export default function App() {
       {({ signOut }) => (
         <div className="app-container">
             <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
-            <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} />
+            <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} totalProfit={totalProfit} weeklyProfits={weeklyProfits} />
             <MainContent main={main} />
         </div>
       )}

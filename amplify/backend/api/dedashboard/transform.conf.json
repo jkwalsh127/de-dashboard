@@ -5,36 +5,6 @@
         "project": {
             "ConflictHandler": "AUTOMERGE",
             "ConflictDetection": "VERSION"
-        },
-        "models": {
-            "TotalWithdrawal": {
-                "ConflictHandler": "AUTOMERGE",
-                "ConflictDetection": "VERSION"
-            },
-            "TotalProfit": {
-                "ConflictHandler": "AUTOMERGE",
-                "ConflictDetection": "VERSION"
-            },
-            "WeeklyWithdrawal": {
-                "ConflictHandler": "AUTOMERGE",
-                "ConflictDetection": "VERSION"
-            },
-            "WeeklyProfit": {
-                "ConflictHandler": "AUTOMERGE",
-                "ConflictDetection": "VERSION"
-            },
-            "WeeklyBalance": {
-                "ConflictHandler": "AUTOMERGE",
-                "ConflictDetection": "VERSION"
-            },
-            "Withdrawal": {
-                "ConflictHandler": "AUTOMERGE",
-                "ConflictDetection": "VERSION"
-            },
-            "User": {
-                "ConflictHandler": "AUTOMERGE",
-                "ConflictDetection": "VERSION"
-            }
         }
     }
 }

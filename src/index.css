@@ -116,6 +116,12 @@ code {
   grid-template-rows: 1fr 1fr;
   align-items: center;
 }
+.detail-with-toggle {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1 fr 1fr;
+  align-items: center;
+}
 .detail-head {
   grid-row: 1;
   display: flex;
@@ -126,15 +132,25 @@ code {
   display: flex;
   justify-content: end;
 }
-#radio-labels-container {
-  grid-row: 2;
-  display: flex;
-  justify-content: space-between;
-  margin: 0 10px;
+
+.radio-label-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.radio-button-group {
+  grid-column: 1/7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.radio-button {
+  height: 30px;
+  width: 0px;
 }
 
 .detail-1 {
-
+  grid-row: 2;
 }
 .detail-2 {
   grid-row: 3;
@@ -148,7 +164,5 @@ code {
 }
 .detail-4 {
   grid-row: 5;
-  display: flex;
-  align-items: center;
 }
 

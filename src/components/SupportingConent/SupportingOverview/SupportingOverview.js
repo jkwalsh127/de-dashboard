@@ -3,16 +3,34 @@ import { Typography } from "@mui/material";
 import BalancePeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
 import ProfitPeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
 import WithdrawalPeriodsRadioList from "../RadioLists/WithdrawalPeriodsRadioList";
+import RadioLabels from "../RadioLabels/RadioLabels";
 
 export default function SupportingOverview({ users, withdrawals, weeklyWithdrawals }) {
+
+    const [withdrawalTotal, setWithdrawalTotal] = useState();
+    function sumWithdrawals(period) {
+        let totalWithdrawals = 0;
+        if (period > withdrawals.length || period == 0) {
+            for (let i = 0; i < withdrawals.length; i++) {
+                totalWithdrawals += (withdrawals[i].amount)
+            }
+        } else {
+            if (period !== 0 ) {
+                for (let i = 0; i < period; i++) {
+                    totalWithdrawals += (withdrawals[i].amount)
+                }
+            }
+        }
+        setWithdrawalTotal(totalWithdrawals);
+    }
+
     const [selectedBalancePeriod, setSelectedBalancePeriod] = useState("1wk");
     const handleBalancePeriodChange = (selection) => setSelectedBalancePeriod(selection);
 
     const [selectedProfitPeriod, setSelectedProfitPeriod] = useState("1wk");
     const handleProfitPeriodChange = (selection) => setSelectedProfitPeriod(selection);
 
-    const [selectedWithdrawalPeriod, setSelectedWithdrawalPeriod] = useState("1wk");
-    const handleWithdrawalPeriodChange = (selection) => setSelectedWithdrawalPeriod(selection);
+    const handleWithdrawalPeriodChange = (period) => sumWithdrawals(period);
 
     return (
         <>
@@ -90,29 +108,13 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                                     user.weeklyProfits[19]
                             }
                         </div> */}
-                        <div className="detail-4">
-                            <Typography>Withdrawls</Typography>
-                            <WithdrawalPeriodsRadioList user={user} handleWithdrawalPeriodChange={handleWithdrawalPeriodChange} />
-                            {
-                                        selectedWithdrawalPeriod === "1wk" ?
-                                            weeklyWithdrawals[0].amount
-                                        : 
-                                            <></>
-                            }
-                            {/* {
-                                selectedWithdrawalPeriod === "1wk" ?
-                                    user.weeklyWithdrawals[0]
-                                : selectedWithdrawalPeriod === "1mo" ?
-                                    user.weeklyWithdrawals[3]
-                                : selectedWithdrawalPeriod === "3mos" ?
-                                    user.weeklyWithdrawals[7]
-                                : selectedWithdrawalPeriod === "6mos" ?
-                                    user.weeklyWithdrawals[11]
-                                : selectedWithdrawalPeriod === "1yr" ?
-                                    user.weeklyWithdrawals[15]
-                                : 
-                                    user.weeklyWithdrawals[19]
-                            } */}
+                        <div className="detail-with-toggle detail-4">
+                            <Typography className="detail-head">Withdrawls</Typography>
+                            <Typography className="detail-info">                                
+                                {withdrawalTotal}
+                            </Typography>
+                            <RadioLabels />
+                            <WithdrawalPeriodsRadioList handleWithdrawalPeriodChange={handleWithdrawalPeriodChange} />
                         </div>
                     </>
                 ))

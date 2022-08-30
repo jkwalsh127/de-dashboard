@@ -106,7 +106,7 @@ code {
   grid-column: 2;
   grid-row: 4;
   display: grid;
-  grid-template-rows: 50px 1fr 1fr 1fr 1fr;
+  grid-template-rows: 50px .2fr .2fr 1fr 1fr 1fr;
   list-style: none;
   color: var(--light-white);
 }
@@ -119,14 +119,10 @@ code {
 .detail-with-toggle {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1 fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   align-items: center;
 }
-.detail-head {
-  grid-row: 1;
-  display: flex;
-  justify-content: start;
-}
+
 .detail-info {
   grid-row: 2;
   display: flex;
@@ -148,14 +144,14 @@ code {
   height: 30px;
   width: 0px;
 }
-
+.detail-head {
+  grid-row: 1;
+}
 .detail-1 {
   grid-row: 2;
 }
 .detail-2 {
   grid-row: 3;
-  display: flex;
-  align-items: center;
 }
 .detail-3 {
   grid-row: 4;

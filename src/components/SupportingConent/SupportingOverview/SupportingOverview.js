@@ -61,31 +61,19 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
             {
                 users.map(user => (
                     <>
-                        <div className="details">
+                        <div className="details detail-head">
+                            <Typography sx={{}}>
+                                Welcome {user.name}
+                            </Typography>
+                            <Typography sx={{}}>
+                                Member since {user.joinDate}
+                            </Typography>
+                        </div>
+                        {/* <div className="details">
                             <Typography className="detail-head">
                                 Your Portfolio Details
                             </Typography>
-                            <div className="detail-info" id="radio-labels-container">
-                                <Typography sx={{ fontSize: 10 }}>
-                                    1 wk
-                                </Typography>
-                                <Typography sx={{ fontSize: 10 }}>
-                                    1 mo
-                                </Typography>
-                                <Typography sx={{ fontSize: 10 }}>
-                                    3 mos
-                                </Typography>
-                                <Typography sx={{ fontSize: 10 }}>
-                                    6 mos
-                                </Typography>
-                                <Typography sx={{ fontSize: 10 }}>
-                                    1 yr
-                                </Typography>
-                                <Typography sx={{ fontSize: 10 }}>
-                                    All
-                                </Typography>
-                            </div>
-                        </div>
+                        </div> */}
                         <div className="details detail-1">
                             <Typography>
                                 Your Investment
@@ -94,48 +82,40 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                                 ${user.investment}
                             </Typography>
                         </div>
-                        {/* <div className="detail-2">
-                            <Typography>
+                        <div className="detail-with-toggle detail-2">
+                            <Typography className="detail-head">
                                 Your Balance
                             </Typography>
-                            <BalancePeriodsRadioList user={user} handleBalancePeriodChange={handleBalancePeriodChange} />
-                            {
-                                selectedBalancePeriod === "1wk" ?
-                                    user.weeklyBalances[0]
-                                : selectedBalancePeriod === "1mo" ?
-                                    user.weeklyBalances[3]
-                                : selectedBalancePeriod === "3mos" ?
-                                    user.weeklyBalances[7]
-                                : selectedBalancePeriod === "6mos" ?
-                                    user.weeklyBalances[11]
-                                : selectedBalancePeriod === "1yr" ?
-                                    user.weeklyBalances[15]
-                                : 
-                                    user.weeklyBalances[19]
-                            }
-                        </div> */}
-                        <div className="detail-with-toggle detail-3">
-                            <Typography className="detail-head">Profits</Typography>
                             <Typography className="detail-info">  
-                            {
-                            profitPeriod === false ?
-                                weeklyProfits[0].profit
-                            :                          
-                                profitTotal
-                            }
+                                ${user.balance}
+                            </Typography>
+                        </div>
+                        <div className="detail-with-toggle detail-3">
+                            <Typography className="detail-head">
+                                Profits
+                            </Typography>
+                            <Typography className="detail-info">  
+                                {
+                                profitPeriod === false ?
+                                    weeklyProfits[0].profit
+                                :                          
+                                    profitTotal
+                                }
                             </Typography>
                             <RadioLabels />
                             <ProfitPeriodsRadioList handleProfitPeriodChange={handleProfitPeriodChange} />
                         </div>
                         <div className="detail-with-toggle detail-4">
-                            <Typography className="detail-head">Withdrawls</Typography>
+                            <Typography className="detail-head">
+                                Withdrawls
+                            </Typography>
                             <Typography className="detail-info">  
-                            {
-                            withdrawalPeriod === false ?
-                                withdrawals[0].amount
-                            :                          
-                                withdrawalTotal
-                            }
+                                {
+                                withdrawalPeriod === false ?
+                                    withdrawals[0].amount
+                                :                          
+                                    withdrawalTotal
+                                }
                             </Typography>
                             <RadioLabels />
                             <WithdrawalPeriodsRadioList handleWithdrawalPeriodChange={handleWithdrawalPeriodChange} />

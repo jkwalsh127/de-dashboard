@@ -11,6 +11,7 @@ export default function ChartPeriodsRadioList({ handleChartPeriodChange }) {
         row
         aria-labelledby="chart-period-radio-list"
         name="chart-period"
+        defaultValue="1 wk"
       >
         <FormControlLabel
           value="1 wk"

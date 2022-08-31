@@ -15,7 +15,7 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
   
     function sumWithdrawals(period) {
         let totalWithdrawals = 0;
-        if (period > withdrawals.length || period == 0) {
+        if (period > withdrawals.length || period === 0) {
             for (let i = 0; i < withdrawals.length; i++) {
                 totalWithdrawals += (withdrawals[i].amount)
             }
@@ -33,7 +33,7 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
     }
     function sumProfits(period) {
         let totalProfits = 0;
-        if (period > weeklyProfits.length || period == 0) {
+        if (period > weeklyProfits.length || period === 0) {
             for (let i = 0; i < weeklyProfits.length; i++) {
                 totalProfits += (weeklyProfits[i].profit)
             }
@@ -61,7 +61,7 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
             {
                 users.map(user => (
                     <>
-                        <div className="details detail-head">
+                        <div className="details detail-head" key={user.name}>
                             <Typography sx={{}}>
                                 Welcome {user.name}
                             </Typography>
@@ -69,12 +69,7 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                                 Member since {user.joinDate}
                             </Typography>
                         </div>
-                        {/* <div className="details">
-                            <Typography className="detail-head">
-                                Your Portfolio Details
-                            </Typography>
-                        </div> */}
-                        <div className="details detail-1">
+                        <div className="details detail-1" key={user.investment}>
                             <Typography>
                                 Your Investment
                             </Typography>
@@ -82,7 +77,7 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                                 ${user.investment}
                             </Typography>
                         </div>
-                        <div className="detail-with-toggle detail-2">
+                        <div className="detail-with-toggle detail-2" key={user.balance}>
                             <Typography className="detail-head">
                                 Your Balance
                             </Typography>
@@ -90,7 +85,7 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                                 ${user.balance}
                             </Typography>
                         </div>
-                        <div className="detail-with-toggle detail-3">
+                        <div className="detail-with-toggle detail-3" key={user.name + " profits"}>
                             <Typography className="detail-head">
                                 Profits
                             </Typography>
@@ -105,7 +100,7 @@ export default function SupportingOverview({ users, withdrawals, weeklyWithdrawa
                             <RadioLabels />
                             <ProfitPeriodsRadioList handleProfitPeriodChange={handleProfitPeriodChange} />
                         </div>
-                        <div className="detail-with-toggle detail-4">
+                        <div className="detail-with-toggle detail-4" key={user.name + " withdrawals"}>
                             <Typography className="detail-head">
                                 Withdrawls
                             </Typography>

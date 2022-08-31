@@ -7,19 +7,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(position) {
-    return { position };
-}
+export default function BasicTable({ btcTrades }) {
 
-export default function BasicTable(btcTrades) {
-
-  const rows = [
-    //   btcTrades.map(btcTrade => (
-    //       createData(btcTrade.position)
-    //   ))
-    console.log(btcTrades),
-    createData('Frozen yogurt')
-  ];
+  const rows = btcTrades;
 
   return (
     <TableContainer component={Paper}>
@@ -29,6 +19,7 @@ export default function BasicTable(btcTrades) {
             <TableCell>Position</TableCell>
             <TableCell align="right">entry date</TableCell>
             <TableCell align="right">close date</TableCell>
+            <TableCell align="right">investment</TableCell>
             <TableCell align="right">entry price</TableCell>
             <TableCell align="right">close price</TableCell>
             <TableCell align="right">profit ($)</TableCell>
@@ -48,10 +39,39 @@ export default function BasicTable(btcTrades) {
               <TableCell component="th" scope="row">
                 {row.position}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell component="th" scope="row">
+                {row.entryDate}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.closeDate}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.investment}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.entryPrice}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.closePrice}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.profitValue}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.profitPercentage}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.runUpValue}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.runUpPercentage}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.drawDownValue}
+              </TableCell>
+              <TableCell component="th" scope="row">
+                {row.drawDownPercentage}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

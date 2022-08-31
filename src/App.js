@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import { Authenticator } from '@aws-amplify/ui-react';
 import "@aws-amplify/ui-react/styles.css";
 import { DataStore } from '@aws-amplify/datastore';
-import { User, Withdrawal, WeeklyWithdrawal, TotalProfit, WeeklyProfit } from './models';
+import { User, Withdrawal, WeeklyWithdrawal, TotalProfit, WeeklyProfit, BtcTrade } from './models';
 
 
 export default function App() {
@@ -14,6 +14,7 @@ export default function App() {
   const [weeklyWithdrawals, setWeeklyWithdrawals] = useState([]);
   const [totalProfit, setTotalProfit] = useState([]);
   const [weeklyProfits, setWeeklyProfits] = useState([]);
+  const [btcTrades, setBtcTrades] = useState([]);
 
   useEffect(() => {
     fetchUser();
@@ -21,6 +22,7 @@ export default function App() {
     fetchWeeklyWithdrawals();
     fetchTotalProfit();
     fetchWeeklyProfits();
+    fetchBtcTrades();
   }, []);
 
   async function fetchUser() {
@@ -53,6 +55,12 @@ export default function App() {
     setWeeklyProfits(weeklyProfitModels);
   }
 
+  async function fetchBtcTrades() {
+    const btcTradeModels = await DataStore.query(BtcTrade);
+    console.log(btcTradeModels);
+    setBtcTrades(btcTradeModels);
+  }
+
   const [supporting, setSupporting] = useState("Overview");
   const handleSupportingChange = (selection) => setSupporting(selection);
 
@@ -65,7 +73,7 @@ export default function App() {
         <div className="app-container">
             <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
             <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} totalProfit={totalProfit} weeklyProfits={weeklyProfits} />
-            <MainContent main={main} />
+            <MainContent main={main} btcTrades={btcTrades} />
         </div>
       )}
     </Authenticator>

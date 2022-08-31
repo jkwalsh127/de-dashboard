@@ -1,11 +1,16 @@
 import React from "react";
 import TradeTable from "./TradeTable";
 
-export default function MainPerformance({ btcTrades }) {
+export default function MainPerformance({ btcTrades, mainContent }) {
 
     return (
         <>
-            <TradeTable btcTrades={btcTrades} />
+            {
+                mainContent === "trades" ?
+                    <TradeTable btcTrades={btcTrades} />
+                :
+                    <div></div>
+            }
         </>
     )
 }

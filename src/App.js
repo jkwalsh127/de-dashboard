@@ -67,13 +67,16 @@ export default function App() {
   const [main, setMain] = useState("Overview");
   const handleMainChange = (selection) => setMain(selection);
 
+  const [mainContent, setMainContent] = useState("chart");
+  const handleMainContentChange = (selection) => setMainContent(selection);
+
   return (
     <Authenticator>
       {({ signOut }) => (
         <div className="app-container">
             <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
-            <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} totalProfit={totalProfit} weeklyProfits={weeklyProfits} />
-            <MainContent main={main} btcTrades={btcTrades} />
+            <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} totalProfit={totalProfit} weeklyProfits={weeklyProfits} handleMainContentChange={handleMainContentChange} />
+            <MainContent main={main} btcTrades={btcTrades} mainContent={mainContent} />
         </div>
       )}
     </Authenticator>

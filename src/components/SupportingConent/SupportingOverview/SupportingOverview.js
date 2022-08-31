@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
-import BalancePeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
-import ProfitPeriodsRadioList from "../RadioLists/ProfitPeriodsRadioList";
-import WithdrawalPeriodsRadioList from "../RadioLists/WithdrawalPeriodsRadioList";
-import RadioLabels from "../RadioLabels/RadioLabels";
+import BalancePeriodsRadioList from "./RadioLists/ProfitPeriodsRadioList";
+import ProfitPeriodsRadioList from "./RadioLists/ProfitPeriodsRadioList";
+import WithdrawalPeriodsRadioList from "./RadioLists/WithdrawalPeriodsRadioList";
+import RadioLabels from "./RadioLabels/RadioLabels";
 
 export default function SupportingOverview({ users, withdrawals, weeklyWithdrawals, totalProfit, weeklyProfits }) {
 

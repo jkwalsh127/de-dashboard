@@ -61,13 +61,15 @@ export default function App() {
     setBtcTrades(btcTradeModels);
   }
 
+
+
   const [supporting, setSupporting] = useState("Overview");
   const handleSupportingChange = (selection) => setSupporting(selection);
 
   const [main, setMain] = useState("Overview");
   const handleMainChange = (selection) => setMain(selection);
 
-  const [mainContent, setMainContent] = useState("chart");
+  const [mainContent, setMainContent] = useState("trades");
   const handleMainContentChange = (selection) => setMainContent(selection);
 
   return (
@@ -76,7 +78,7 @@ export default function App() {
         <div className="app-container">
             <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
             <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} totalProfit={totalProfit} weeklyProfits={weeklyProfits} handleMainContentChange={handleMainContentChange} />
-            <MainContent main={main} btcTrades={btcTrades} mainContent={mainContent} />
+            <MainContent main={main} btcTrades={btcTrades} weeklyProfits={weeklyProfits} mainContent={mainContent} />
         </div>
       )}
     </Authenticator>

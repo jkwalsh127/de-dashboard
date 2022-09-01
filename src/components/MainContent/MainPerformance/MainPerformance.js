@@ -1,7 +1,8 @@
 import React from "react";
+import PerformanceChart from "./PerformanceChart";
 import TradeTable from "./TradeTable";
 
-export default function MainPerformance({ btcTrades, mainContent }) {
+export default function MainPerformance({ btcTrades, mainContent, weeklyProfits }) {
 
     return (
         <>
@@ -9,7 +10,7 @@ export default function MainPerformance({ btcTrades, mainContent }) {
                 mainContent === "trades" ?
                     <TradeTable btcTrades={btcTrades} />
                 :
-                    <div></div>
+                    <PerformanceChart btcTrades={btcTrades} weeklyProfits={weeklyProfits} />
             }
         </>
     )

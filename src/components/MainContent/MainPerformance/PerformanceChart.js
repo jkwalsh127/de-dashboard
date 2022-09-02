@@ -20,9 +20,7 @@ export default function PerformanceChart({ btcTrades, weeklyProfits }) {
 
 
     useEffect(() => {
-        console.log(weeklyProfitsArray);
         sumWeeklyProfits();
-        console.log(weeklyProfits);
       }, []);
 
     return (

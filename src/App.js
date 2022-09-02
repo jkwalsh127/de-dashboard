@@ -76,7 +76,7 @@ export default function App() {
     <Authenticator>
       {({ signOut }) => (
         <div className="app-container">
-            <Header  signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
+            <Header signOut={signOut} handleSupportingChange={handleSupportingChange} handleMainChange={handleMainChange} />
             <SupportingContent supporting={supporting} users={users} withdrawals={withdrawals} weeklyWithdrawals={weeklyWithdrawals} totalProfit={totalProfit} weeklyProfits={weeklyProfits} handleMainContentChange={handleMainContentChange} />
             <MainContent main={main} btcTrades={btcTrades} weeklyProfits={weeklyProfits} mainContent={mainContent} />
         </div>
